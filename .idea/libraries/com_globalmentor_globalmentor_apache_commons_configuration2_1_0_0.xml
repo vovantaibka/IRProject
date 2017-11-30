@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="com.globalmentor:globalmentor-apache-commons-configuration2:1.0.0" type="repository">
+    <properties maven-id="com.globalmentor:globalmentor-apache-commons-configuration2:1.0.0" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/globalmentor-apache-commons-configuration2-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mockito-core-2.7.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-configuration2-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang3-3.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-beanutils-1.9.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-collections-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/globalmentor-core-0.5.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/clogr-logback-0.7.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/clogr-0.7.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/csar-0.7.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logback-classic-1.1.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logback-core-1.1.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

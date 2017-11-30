@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.carrotsearch:java-sizeof:0.0.5" type="repository">
+    <properties maven-id="com.carrotsearch:java-sizeof:0.0.5" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/java-sizeof-0.0.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

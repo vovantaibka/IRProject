@@ -1,0 +1,54 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="InformationRetrievalProject:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/InformationRetrievalProject_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="InformationRetrievalProject/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="InformationRetrievalProject" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Jersey-2.2" />
+          <element id="library" level="project" name="lucene-analyzers-common-7.0.0" />
+          <element id="library" level="project" name="lucene-backward-codecs-7.0.0" />
+          <element id="library" level="project" name="lucene-benchmark-7.0.0" />
+          <element id="library" level="project" name="lucene-classification-7.0.0" />
+          <element id="library" level="project" name="lucene-codecs-7.0.0" />
+          <element id="library" level="project" name="lucene-core-7.0.0" />
+          <element id="library" level="project" name="lucene-demo-7.0.0" />
+          <element id="library" level="project" name="lucene-expressions-7.0.0" />
+          <element id="library" level="project" name="lucene-facet-7.0.0" />
+          <element id="library" level="project" name="lucene-grouping-7.0.0" />
+          <element id="library" level="project" name="lucene-highlighter-7.0.0" />
+          <element id="library" level="project" name="lucene-join-7.0.0" />
+          <element id="library" level="project" name="lucene-memory-7.0.0" />
+          <element id="library" level="project" name="lucene-misc-7.0.0" />
+          <element id="library" level="project" name="lucene-queries-7.0.0" />
+          <element id="library" level="project" name="lucene-queryparser-7.0.0" />
+          <element id="library" level="project" name="lucene-replicator-7.0.0" />
+          <element id="library" level="project" name="lucene-sandbox-7.0.0" />
+          <element id="library" level="project" name="lucene-spatial-7.0.0" />
+          <element id="library" level="project" name="lucene-spatial-extras-7.0.0" />
+          <element id="library" level="project" name="lucene-spatial3d-7.0.0" />
+          <element id="library" level="project" name="lucene-suggest-7.0.0" />
+          <element id="library" level="project" name="lucene-test-framework-7.0.0" />
+          <element id="library" level="project" name="com.globalmentor:globalmentor-apache-commons-configuration2:1.0.0" />
+          <element id="library" level="project" name="com.googlecode.json-simple:json-simple:1.1" />
+          <element id="library" level="project" name="com.carrotsearch:java-sizeof:0.0.5" />
+          <element id="library" level="project" name="commons-beanutils:commons-beanutils:1.9.3" />
+          <element id="library" level="project" name="commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="org.apache.commons:commons-configuration2:2.2" />
+          <element id="library" level="project" name="org.apache.commons:commons-lang3:3.6" />
+          <element id="library" level="project" name="org.apache.logging.log4j:log4j-api:2.9.1" />
+          <element id="library" level="project" name="org.apache.logging.log4j:log4j-core:2.9.1" />
+          <element id="library" level="project" name="org.eclipse.jetty:jetty-http:9.4.7.v20170914" />
+          <element id="library" level="project" name="org.eclipse.jetty:jetty-io:9.4.7.v20170914" />
+          <element id="library" level="project" name="org.eclipse.jetty:jetty-util:9.4.7.v20170914" />
+          <element id="library" level="project" name="org.jsoup:jsoup:1.10.3" />
+          <element id="library" level="project" name="org.locationtech.spatial4j:spatial4j:0.6" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
