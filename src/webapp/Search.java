@@ -1,5 +1,7 @@
 package webapp;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -23,12 +25,15 @@ public class Search {
     public static final String field = "content";
     public static final int hitsPerPage = 10;
 
+    private static final Logger logger = LogManager.getLogger(Search.class);
+
     private IndexReader reader = null;
     private IndexSearcher searcher = null;
     private Analyzer analyzer = new StandardAnalyzer();
     private QueryParser parser = new QueryParser(field, analyzer);
 
     public Search() throws IOException {
+        logger.debug("Loading index from " + index_path);
         reader = DirectoryReader.open(FSDirectory.open(Paths.get(index_path)));
         searcher = new IndexSearcher(reader);
     }
