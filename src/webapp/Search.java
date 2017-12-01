@@ -1,7 +1,5 @@
 package webapp;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -25,7 +23,7 @@ public class Search {
     public static final String field = "content";
     public static final int hitsPerPage = 10;
 
-    private static final Logger logger = LogManager.getLogger(Search.class);
+//    private static final Logger logger = LogManager.getLogger(Search.class);
 
     private IndexReader reader = null;
     private IndexSearcher searcher = null;
@@ -33,7 +31,7 @@ public class Search {
     private QueryParser parser = new QueryParser(field, analyzer);
 
     public Search() throws IOException {
-        logger.debug("Loading index from " + index_path);
+//        logger.debug("Loading index from " + index_path);
         reader = DirectoryReader.open(FSDirectory.open(Paths.get(index_path)));
         searcher = new IndexSearcher(reader);
     }
@@ -41,10 +39,12 @@ public class Search {
     public JSONObject search(String query_text, int page) throws ParseException, IOException {
         Query query = parser.parse(query_text);
         TopDocs results = searcher.search(query, 1000);
+        long totalHits = results.totalHits;
         ScoreDoc[] hits = results.scoreDocs;
         JSONObject out = new JSONObject();
         JSONArray arr = new JSONArray();
 
+        int totalPages = (int)(totalHits / hitsPerPage) + 1;
         int start = (page - 1) * hitsPerPage;
         int end = start + hitsPerPage;
 
@@ -57,7 +57,10 @@ public class Search {
 //            obj.put("content", doc.get("content"));
             arr.add(obj);
         }
+
         out.put("hits", arr);
+        out.put("totalHits", totalHits);
+        out.put("totalPages", totalPages);
         return out;
     }
 }

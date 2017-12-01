@@ -76,6 +76,7 @@
       </style>
   </head>
   <body>
+  <% String query = ""; %>
   <div class="container">
       <div class="row">
           <div class="col-md-3"></div>
@@ -83,37 +84,23 @@
               <h1>Information Retrieval Tool</h1>
           </div>
       </div>
-      <div class="row">
-          <div class="col-md-3"></div>
-          <div class="col-md-6">
-              <form action="/processquery" class="search-form" method="post">
+      <form action="/processquery" class="search-form" method="get">
+          <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
                   <div class="form-group has-feedback">
-                      <% String query = (String) request.getAttribute("query");%>
+                      <% query = (String) request.getAttribute("query");%>
                       <% if (query==null || query.isEmpty()) { %>
-                          <label for="search" class="sr-only">Search</label>
-                          <input type="text" class="form-control" name="search" id="search" placeholder="Search" value="">
+                      <label for="search" class="sr-only">Search</label>
+                      <input type="text" class="form-control" name="search" id="search" placeholder="Search" value="">
                       <% } else { %>
-                          <label for="search" class="sr-only">Search</label>
-                          <input type="text" class="form-control" name="search" id="search" placeholder="Search" value="<%=query%>">
+                      <label for="search" class="sr-only">Search</label>
+                      <input type="text" class="form-control" name="search" id="search" placeholder="Search" value="<%=query%>">
                       <% } %>
                   </div>
-              </form>
+              </div>
           </div>
-      </div>
-  </div>
-  <table>
-      <% List results = (List)request.getAttribute("results");%>
-      <c:forEach items="${results}" var="result">
-          <tr>
-              <td><c:out value="${result['title']}"/></td>
-          </tr>
-          <tr>
-              <td><c:out value="${result['url']}"/></td>
-          </tr>
-      </c:forEach>
-  </table>
-  <div class="alert alert-info" role="alert">
-      There are<strong> ${fn:length(results)} </strong>results
+      </form>
   </div>
   </body>
 </html>

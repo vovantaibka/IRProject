@@ -53,8 +53,6 @@
     <orderEntry type="library" exported="" name="javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" exported="" name="org.apache.commons:commons-configuration2:2.2" level="project" />
     <orderEntry type="library" exported="" name="org.apache.commons:commons-lang3:3.6" level="project" />
-    <orderEntry type="library" exported="" name="org.apache.logging.log4j:log4j-api:2.9.1" level="project" />
-    <orderEntry type="library" exported="" name="org.apache.logging.log4j:log4j-core:2.9.1" level="project" />
     <orderEntry type="library" exported="" name="org.eclipse.jetty:jetty-http:9.4.7.v20170914" level="project" />
     <orderEntry type="library" exported="" name="org.eclipse.jetty:jetty-io:9.4.7.v20170914" level="project" />
     <orderEntry type="library" exported="" name="org.eclipse.jetty:jetty-server:9.4.7.v20170914" level="project" />
@@ -63,5 +61,7 @@
     <orderEntry type="library" exported="" name="org.locationtech.spatial4j:spatial4j:0.6" level="project" />
     <orderEntry type="library" name="jstl:jstl:1.2" level="project" />
     <orderEntry type="library" name="activation" level="project" />
+    <orderEntry type="library" name="org.apache.tomcat:tomcat-juli:8.5.23" level="project" />
+    <orderEntry type="library" name="org.apache.tomcat.extras:tomcat-extras-juli-adapters:8.5.2" level="project" />
   </component>
 </module>

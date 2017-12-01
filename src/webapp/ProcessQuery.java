@@ -19,6 +19,10 @@ public class ProcessQuery extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Search searcher = new Search();
 
         //Fix error font
@@ -30,14 +34,24 @@ public class ProcessQuery extends HttpServlet {
 
         try {
             String query = request.getParameter("search");
-            JSONObject result = searcher.search(query, 10);
+            String page_str = request.getParameter("page");
 
-            JSONArray pages = (JSONArray) result.get("hits");
-            Iterator page = pages.iterator();
+            int page = 1;
+            if (page_str!= null && !page_str.isEmpty())
+            {
+                page = Integer.parseInt(page_str);
+            }
+
+            JSONObject results = searcher.search(query, page);
+
+            JSONArray pages = (JSONArray) results.get("hits");
+            long totalHits = (long) results.get("totalHits");
+            int totalPages = (int) results.get("totalPages");
+            Iterator it = pages.iterator();
 
             List list = new ArrayList();
-            while (page.hasNext()) {
-                JSONObject jsonObject = (JSONObject) page.next();
+            while (it.hasNext()) {
+                JSONObject jsonObject = (JSONObject) it.next();
 
                 Map m1 = new HashMap();
                 m1.put("url", jsonObject.get("url"));
@@ -48,17 +62,17 @@ public class ProcessQuery extends HttpServlet {
             }
 
             request.setAttribute("query", query);
+            request.setAttribute("page", page);
             request.setAttribute("results", list);
-            request.getRequestDispatcher("./index.jsp").forward(request, response);
+            request.setAttribute("totalHits", totalHits);
+            request.setAttribute("totalPages", totalPages);
+
+            request.getRequestDispatcher("./search.jsp").forward(request, response);
         } catch (ParseException e) {
             e.printStackTrace();
         }
         // request.setAttribute("results", "Kết quả trả về!!!");
 
         // request.getRequestDispatcher("./index.jsp").forward(request, response);
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }
