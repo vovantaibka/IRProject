@@ -13,7 +13,8 @@ public class Configs {
         if (config == null) {
             Configurations configs = new Configurations();
             try {
-                config = configs.properties(new File("conf/searcher.conf"));
+                config = configs.properties(new File("/home/francy/IdeaProjects/InformationRetrievalProject/conf/searcher.conf"));
+                System.out.print(System.getProperty("user.dir"));
             } catch (ConfigurationException e) {
                 e.printStackTrace();
             }

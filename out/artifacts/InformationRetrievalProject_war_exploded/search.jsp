@@ -25,17 +25,29 @@
 
     <title>Information Retrieval Project</title>
     <style type="text/css">
+        body {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        #title {
+            padding-top: 20px;
+        }
+        #item-list {
+            padding-top: 25px;
+        }
         .search-form .form-group {
             float: right !important;
             transition: all 0.35s, border-radius 0s;
             width: 100%;
-            height: 32px;
+            /*height: 32px;*/
             background-color: #fff;
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
             border-radius: 25px;
             border: 1px solid #ccc;
         }
         .search-form .form-group input.form-control {
+            border-radius: 25px;
             padding-right: 20px;
             border: 0 none;
             background: transparent;
@@ -77,19 +89,30 @@
         .search-form .item-list .item a {
             cursor: pointer;
         }
-        
+        .col-center-block {
+            float: none;
+            display: block;
+            margin: 0 auto;
+            /* margin-left: auto; margin-right: auto; */
+        }
+        .total-hits {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            margin-bottom: 0px!important;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div id="title" class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6" style="text-align: center">
                 <h1>Information Retrieval Tool</h1>
             </div>
         </div>
         <form action="/processquery" class="search-form" method="get">
-            <div class="row">
+            <div id="input-search" class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="form-group has-feedback">
@@ -104,7 +127,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="item-list" class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                     <div class="item-list">
@@ -128,38 +151,40 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="pagination">
-                    <nav aria-label="Page navigation">
-                        <% int totalPages = (int) request.getAttribute("totalPages"); %>
-                        <ul class="pagination">
-                            <% int currentPage = (int) request.getAttribute("page"); %>
-                            <% if(currentPage > 1) { %>
-                            <li>
-                                <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=(currentPage - 1)%>" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <% } %>
-                            <%  for (int i = 1; i <= totalPages; i++) { %>
+            <div id="pagination" class="row">
+                <div class="col-center-block">
+                    <div class="pagination">
+                        <nav aria-label="Page navigation">
+                            <% int totalPages = (int) request.getAttribute("totalPages"); %>
+                            <ul class="pagination">
+                                <% int currentPage = (int) request.getAttribute("page"); %>
+                                <% if(currentPage > 1) { %>
+                                <li>
+                                    <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=(currentPage - 1)%>" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <% } %>
+                                <%  for (int i = 1; i <= totalPages; i++) { %>
                                 <li>
                                     <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=i%>"><%=i%></a>
                                 </li>
-                            <% } %>
-                            <% if(currentPage != totalPages) { %>
-                            <li>
-                                <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=(currentPage + 1)%>" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                            <% } %>
-                        </ul>
-                    </nav>
+                                <% } %>
+                                <% if(currentPage != totalPages) { %>
+                                <li>
+                                    <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=(currentPage + 1)%>" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </form>
     </div>
-    <div class="alert alert-info" role="alert">
+    <div class="alert alert-info total-hits" role="alert">
         There are<strong> ${totalHits} </strong>results
     </div>
 </body>

@@ -49,16 +49,14 @@ public class ProcessQuery extends HttpServlet {
             int totalPages = (int) results.get("totalPages");
             Iterator it = pages.iterator();
 
-            List list = new ArrayList();
+            List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
             while (it.hasNext()) {
                 JSONObject jsonObject = (JSONObject) it.next();
 
-                Map m1 = new HashMap();
+                Map<String, Object> m1 = new HashMap<>();
                 m1.put("url", jsonObject.get("url"));
                 m1.put("title", jsonObject.get("title"));
                 list.add(m1);
-//                list.add(jsonObject.get("url"));
-//                list.add(jsonObject.get("title"));
             }
 
             request.setAttribute("query", query);
@@ -71,8 +69,5 @@ public class ProcessQuery extends HttpServlet {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        // request.setAttribute("results", "Kết quả trả về!!!");
-
-        // request.getRequestDispatcher("./index.jsp").forward(request, response);
     }
 }

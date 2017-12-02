@@ -24,17 +24,27 @@
 
       <title>Information Retrieval Project</title>
       <style type="text/css">
+          body {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+          }
+          .container {
+              position: relative;
+              top: 35%;
+          }
           .search-form .form-group {
               float: right !important;
               transition: all 0.35s, border-radius 0s;
               width: 100%;
-              height: 32px;
+              /*height: 32px;*/
               background-color: #fff;
               box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
               border-radius: 25px;
               border: 1px solid #ccc;
           }
           .search-form .form-group input.form-control {
+              border-radius: 25px;
               padding-right: 20px;
               border: 0 none;
               background: transparent;
@@ -76,7 +86,6 @@
       </style>
   </head>
   <body>
-  <% String query = ""; %>
   <div class="container">
       <div class="row">
           <div class="col-md-3"></div>
@@ -89,14 +98,8 @@
               <div class="col-md-3"></div>
               <div class="col-md-6">
                   <div class="form-group has-feedback">
-                      <% query = (String) request.getAttribute("query");%>
-                      <% if (query==null || query.isEmpty()) { %>
                       <label for="search" class="sr-only">Search</label>
-                      <input type="text" class="form-control" name="search" id="search" placeholder="Search" value="">
-                      <% } else { %>
-                      <label for="search" class="sr-only">Search</label>
-                      <input type="text" class="form-control" name="search" id="search" placeholder="Search" value="<%=query%>">
-                      <% } %>
+                      <input type="text" class="form-control" name="search" id="search" placeholder="Search">
                   </div>
               </div>
           </div>

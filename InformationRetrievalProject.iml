@@ -9,6 +9,9 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/src" />
+        </sourceRoots>
       </configuration>
     </facet>
   </component>
@@ -16,6 +19,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -44,7 +48,6 @@
     <orderEntry type="library" exported="" name="lucene-spatial3d-7.0.0" level="project" />
     <orderEntry type="library" exported="" name="lucene-suggest-7.0.0" level="project" />
     <orderEntry type="library" exported="" name="lucene-test-framework-7.0.0" level="project" />
-    <orderEntry type="library" exported="" name="com.globalmentor:globalmentor-apache-commons-configuration2:1.0.0" level="project" />
     <orderEntry type="library" exported="" name="com.googlecode.json-simple:json-simple:1.1" level="project" />
     <orderEntry type="library" exported="" name="com.carrotsearch:java-sizeof:0.0.5" level="project" />
     <orderEntry type="library" exported="" name="commons-beanutils:commons-beanutils:1.9.3" level="project" />
@@ -61,7 +64,6 @@
     <orderEntry type="library" exported="" name="org.locationtech.spatial4j:spatial4j:0.6" level="project" />
     <orderEntry type="library" name="jstl:jstl:1.2" level="project" />
     <orderEntry type="library" name="activation" level="project" />
-    <orderEntry type="library" name="org.apache.tomcat:tomcat-juli:8.5.23" level="project" />
-    <orderEntry type="library" name="org.apache.tomcat.extras:tomcat-extras-juli-adapters:8.5.2" level="project" />
+    <orderEntry type="library" exported="" name="apache-log4j-2.10" level="project" />
   </component>
 </module>

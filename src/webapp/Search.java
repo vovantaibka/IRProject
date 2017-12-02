@@ -1,5 +1,8 @@
 package webapp;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -19,20 +22,19 @@ import java.io.IOException;
 import java.nio.file.Paths;
 
 public class Search {
-    public static final String index_path = "/home/francy/IdeaProjects/InformationRetrievalProject/indexingJSONData";
-    public static final String field = "content";
-    public static final int hitsPerPage = 10;
+    private static final String index_path = Configs.getInstance().getString("indexPath");
+    private static final String searchField = Configs.getInstance().getString("searchField");
+    public static final int hitsPerPage = Configs.getInstance().getInt("hitsPerPage");
 
-//    private static final Logger logger = LogManager.getLogger(Search.class);
 
-    private IndexReader reader = null;
+    private static final Logger logger = LogManager.getLogger(Search.class);
+
     private IndexSearcher searcher = null;
     private Analyzer analyzer = new StandardAnalyzer();
-    private QueryParser parser = new QueryParser(field, analyzer);
+    private QueryParser parser = new QueryParser(searchField, analyzer);
 
     public Search() throws IOException {
-//        logger.debug("Loading index from " + index_path);
-        reader = DirectoryReader.open(FSDirectory.open(Paths.get(index_path)));
+        IndexReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(index_path)));
         searcher = new IndexSearcher(reader);
     }
 
