@@ -32,6 +32,8 @@ public class ProcessQuery extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
+        out.print(getServletContext().getRealPath("/"));
+
         try {
             String query = request.getParameter("search");
             String page_str = request.getParameter("page");
@@ -65,7 +67,7 @@ public class ProcessQuery extends HttpServlet {
             request.setAttribute("totalHits", totalHits);
             request.setAttribute("totalPages", totalPages);
 
-            request.getRequestDispatcher("./search.jsp").forward(request, response);
+//            request.getRequestDispatcher("./search.jsp").forward(request, response);
         } catch (ParseException e) {
             e.printStackTrace();
         }
