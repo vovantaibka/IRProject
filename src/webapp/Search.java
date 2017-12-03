@@ -34,6 +34,7 @@ public class Search {
     private QueryParser parser = new QueryParser(searchField, analyzer);
 
     public Search() throws IOException {
+        logger.info("12/11/1996");
         IndexReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(index_path)));
         searcher = new IndexSearcher(reader);
     }

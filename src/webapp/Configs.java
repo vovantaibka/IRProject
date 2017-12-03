@@ -14,7 +14,6 @@ public class Configs {
             Configurations configs = new Configurations();
             try {
                 config = configs.properties(new File("/home/francy/IdeaProjects/InformationRetrievalProject/conf/searcher.conf"));
-                System.out.print(System.getProperty("user.dir"));
             } catch (ConfigurationException e) {
                 e.printStackTrace();
             }
