@@ -14,6 +14,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import webapp.Configs;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -24,8 +25,7 @@ import java.util.Date;
 public class IndexFile {
     public static void main(String[] args) {
         // Indexing JSON data
-//        String indexPath = Configs.getInstance().getString("index.dir");
-        String indexPath = "indexingJSONData";
+        String indexPath = Configs.getInstance().getString("index.dir");
         boolean create = true;
 
         Date start = new Date();

@@ -23,6 +23,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
+    <%--Font Awesome--%>
+    <script src="https://use.fontawesome.com/8eb9fd090f.js"></script>
+
     <title>Information Retrieval Project</title>
     <style type="text/css">
         body {
@@ -35,6 +38,23 @@
         }
         #item-list {
             padding-top: 25px;
+        }
+        .no-relevance {
+            color: red!important;
+        }
+        .search-form {
+            margin-bottom: 48px;
+        }
+        .search-form #item-list .title {
+            font-size: large;
+        }
+        .search-form #item-list .url {
+            color: #006621;
+        }
+        .search-form #item-list .highlightedText {
+            color: #545454;
+            font-size: small;
+            padding-bottom: 20px;
         }
         .search-form .form-group {
             float: right !important;
@@ -95,6 +115,20 @@
             margin: 0 auto;
             /* margin-left: auto; margin-right: auto; */
         }
+        .col-center-block .pagination .current-page a {
+            font-size: medium;
+            color: white!important;
+        }
+        .col-center-block .pagination .page{
+            border: solid #545454 0.5px;
+        }
+        .col-center-block .pagination .current-page{
+            background-color: #007bff;
+        }
+        .col-center-block .pagination>li>a {
+            /*border-radius: 50% !important;*/
+            margin: 0 5px;
+        }
         .total-hits {
             position: fixed;
             bottom: 0;
@@ -136,14 +170,21 @@
                                 <div class="item">
                                     <tr>
                                         <td class="title">
-                                            <a href="<c:out value="${result['url']}"/>"><c:out value="${result['title']}"/></a>
+                                            <a href="<c:out value="${result['url']}"/>"><c:out value="${result['title']}"/>
+                                                <c:if test = "${result['relevance'] == 1}">
+                                                    <span class="fa fa-check" aria-hidden="true"></span>
+                                                </c:if>
+                                                <c:if test = "${result['relevance'] == 0}">
+                                                    <span class="fa fa-times no-relevance" aria-hidden="true"></span>
+                                                </c:if>
+                                            </a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="url"><c:out value="${result['url']}"/></td>
                                     </tr>
                                     <tr>
-                                        <td class="summary"></td>
+                                        <td class="highlightedText">${result['highlightedText']}</td>
                                     </tr>
                                 </div>
                             </c:forEach>
@@ -166,9 +207,15 @@
                                 </li>
                                 <% } %>
                                 <%  for (int i = 1; i <= totalPages; i++) { %>
-                                <li>
-                                    <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=i%>"><%=i%></a>
-                                </li>
+                                    <% if(i == currentPage) { %>
+                                        <li class="page current-page">
+                                            <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=i%>"><%=i%></a>
+                                        </li>
+                                    <% } else { %>
+                                        <li class="page">
+                                            <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=i%>"><%=i%></a>
+                                        </li>
+                                    <% } %>
                                 <% } %>
                                 <% if(currentPage != totalPages) { %>
                                 <li>

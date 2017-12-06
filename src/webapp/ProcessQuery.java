@@ -56,6 +56,8 @@ public class ProcessQuery extends HttpServlet {
                 Map<String, Object> m1 = new HashMap<>();
                 m1.put("url", jsonObject.get("url"));
                 m1.put("title", jsonObject.get("title"));
+                m1.put("relevance", jsonObject.get("relevance"));
+                m1.put("highlightedText", jsonObject.get("highlightedText"));
                 list.add(m1);
             }
 
