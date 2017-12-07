@@ -74,38 +74,6 @@
             box-shadow: none;
             display:block;
         }
-        /*.search-form .form-group input.form-control::-webkit-input-placeholder {*/
-        /*display: none;*/
-        /*}*/
-        /*.search-form .form-group input.form-control:-moz-placeholder {*/
-        /*!* Firefox 18- *!*/
-        /*display: none;*/
-        /*}*/
-        /*.search-form .form-group input.form-control::-moz-placeholder {*/
-        /*!* Firefox 19+ *!*/
-        /*display: none;*/
-        /*}*/
-        /*.search-form .form-group input.form-control:-ms-input-placeholder {*/
-        /*display: none;*/
-        /*}*/
-        /*.search-form .form-group:hover {*/
-        /*width: 100%;*/
-        /*border-radius: 4px 25px 25px 4px;*/
-        /*}*/
-        /*.search-form .form-group span.form-control-feedback {*/
-        /*position: absolute;*/
-        /*top: -1px;*/
-        /*right: -2px;*/
-        /*z-index: 2;*/
-        /*display: block;*/
-        /*width: 34px;*/
-        /*height: 34px;*/
-        /*line-height: 34px;*/
-        /*text-align: center;*/
-        /*color: #3596e0;*/
-        /*left: initial;*/
-        /*font-size: 14px;*/
-        /*}*/
         .search-form .item-list .item a {
             cursor: pointer;
         }
@@ -120,7 +88,7 @@
             color: white!important;
         }
         .col-center-block .pagination .page{
-            border: solid #545454 0.5px;
+            border: #545454 0.5px;
         }
         .col-center-block .pagination .current-page{
             background-color: #007bff;
@@ -171,17 +139,28 @@
                                     <tr>
                                         <td class="title">
                                             <a href="<c:out value="${result['url']}"/>"><c:out value="${result['title']}"/>
-                                                <c:if test = "${result['relevance'] == 1}">
-                                                    <span class="fa fa-check" aria-hidden="true"></span>
-                                                </c:if>
-                                                <c:if test = "${result['relevance'] == 0}">
-                                                    <span class="fa fa-times no-relevance" aria-hidden="true"></span>
-                                                </c:if>
+                                                <c:choose>
+                                                    <c:when test="${result['relevance'] == 1}">
+                                                        <span class="fa fa-check" aria-hidden="true"></span>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <span class="fa fa-times no-relevance" aria-hidden="true"></span>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="url"><c:out value="${result['url']}"/></td>
+                                        <td class="url">
+                                            <c:choose>
+                                                <c:when test="${fn:length(result['url']) <= 110}">
+                                                    <c:out value="${result['url']}"/>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <c:out value="${fn:substring(result['url'], 0, 110)}..."/>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="highlightedText">${result['highlightedText']}</td>
@@ -232,7 +211,12 @@
         </form>
     </div>
     <div class="alert alert-info total-hits" role="alert">
-        There are<strong> ${totalHits} </strong>results
+        <div>
+            There are<strong> ${totalHits} </strong>results
+        </div>
+        <div style="position: fixed; bottom: 12px; right: 15px;">
+            Page<strong> ${page} </strong>
+        </div>
     </div>
 </body>
 </html>

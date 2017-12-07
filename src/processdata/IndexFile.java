@@ -120,7 +120,6 @@ public class IndexFile {
                 doc.add(relevanceField);
 
                 writer.addDocument(doc);
-//                System.out.printf("\turl = %s\n\ttitle = %s\n\tcontent = %s\n\trelevance = %s\n", url, title, content, relevance);
             } catch (IOException ex) {
                 System.err.println("Error adding documents to the index. " +  ex.getMessage());
             }
