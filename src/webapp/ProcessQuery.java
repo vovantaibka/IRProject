@@ -1,5 +1,7 @@
 package webapp;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -15,6 +17,8 @@ import java.util.*;
 
 @WebServlet(name = "ProcessQuery")
 public class ProcessQuery extends HttpServlet {
+    private static final Logger logger = LogManager.getLogger(ProcessQuery.class);
+
     public ProcessQuery() throws IOException {
     }
 
@@ -35,6 +39,8 @@ public class ProcessQuery extends HttpServlet {
         try {
             String query = request.getParameter("search");
             String page_str = request.getParameter("page");
+
+            logger.info("Query: " + query + " - Page: " + page_str);
 
             int page = 1;
             if (page_str!= null && !page_str.isEmpty())

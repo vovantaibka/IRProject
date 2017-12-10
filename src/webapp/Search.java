@@ -20,6 +20,7 @@ import org.apache.lucene.store.FSDirectory;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 
@@ -27,6 +28,7 @@ public class Search {
     private static final String index_path = Configs.getInstance().getString("indexPath");
     private static final String searchField = Configs.getInstance().getString("searchField");
     public static final int hitsPerPage = Configs.getInstance().getInt("hitsPerPage");
+    public static final int maxNHits = Configs.getInstance().getInt("maxNHits");
 
 
     private static final Logger logger = LogManager.getLogger(Search.class);
@@ -37,13 +39,18 @@ public class Search {
     private QueryParser parser = new QueryParser(searchField, analyzer);
 
     public Search() throws IOException {
+        logger.info("Loading index from " + index_path);
+
+        String filePath = new File("").getAbsolutePath();
+        logger.info(filePath.concat(" path to the property file"));
+
         reader = DirectoryReader.open(FSDirectory.open(Paths.get(index_path)));
         searcher = new IndexSearcher(reader);
     }
 
     public JSONObject search(String query_text, int page) throws ParseException, IOException {
         Query query = parser.parse(query_text);
-        TopDocs results = searcher.search(query, 1000);
+        TopDocs results = searcher.search(query, maxNHits);
 
         BoldFormatter formatter = new BoldFormatter();
         Highlighter highlighter = new Highlighter(formatter, new QueryScorer(query));

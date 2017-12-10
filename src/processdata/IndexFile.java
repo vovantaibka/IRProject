@@ -1,5 +1,7 @@
 package processdata;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -23,11 +25,14 @@ import java.nio.file.Paths;
 import java.util.Date;
 
 public class IndexFile {
+    private static final Logger logger = LogManager.getLogger(IndexFile.class);
+    public IndexFile() {}
+
     public static void main(String[] args) {
         // Indexing JSON data
         String indexPath = Configs.getInstance().getString("index.dir");
-        boolean create = true;
 
+        boolean create = Configs.getInstance().getBoolean("createNewIndex");
         Date start = new Date();
 
         try {
@@ -52,7 +57,7 @@ public class IndexFile {
             // iwc.setRAMBufferSizeMB(256.0);
 
             IndexWriter writer = new IndexWriter(dir, iwc);
-            step1(writer);
+            indexDocs(writer);
 
             // NOTE: if you want to maximize search performance,
             // you can optionally call forceMerge here.  This can be
@@ -65,15 +70,15 @@ public class IndexFile {
             writer.close();
 
             Date end = new Date();
-            System.out.println(end.getTime() - start.getTime() + " total milliseconds");
+            logger.info(end.getTime() - start.getTime() + " total milliseconds");
         } catch (IOException e) {
-            System.out.println(" caught a " + e.getClass() +
+            logger.info("Caught a " + e.getClass() +
                     "\n with message: " + e.getMessage());
         }
         // End Indexing
     }
 
-    private static void step1(final IndexWriter writer)
+    private static void indexDocs(final IndexWriter writer)
     {
         //JSON parser object to parse read file
         JSONParser jsonParser = new JSONParser();
@@ -93,9 +98,6 @@ public class IndexFile {
 
     private static void parseQueryDetailObject(IndexWriter writer, JSONObject queryDetail)
     {
-//        String query = (String)queryDetail.get("query");
-//        String description = (String)queryDetail.get("description");
-//        System.out.printf("query: %s\ndescription:%s\nsites:\n", query, description);
         JSONArray sites = (JSONArray)queryDetail.get("sites");
         for (Object obj: sites) {
             //
@@ -121,7 +123,7 @@ public class IndexFile {
 
                 writer.addDocument(doc);
             } catch (IOException ex) {
-                System.err.println("Error adding documents to the index. " +  ex.getMessage());
+                logger.info("Error adding documents to the index. " +  ex.getMessage());
             }
         }
     }

@@ -16,6 +16,10 @@
 
       <%--Bootstrap CSS--%>
       <%--<link href=”bootstrap/css/bootstrap.css” rel=”stylesheet” type=”text/css” />--%>
+
+      <%--Jquery--%>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
       <%--<script type=”text/javascript” src=”bootstrap/js/bootstrap.js”></script>--%>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -99,11 +103,17 @@
               <div class="col-md-6">
                   <div class="form-group has-feedback">
                       <label for="search" class="sr-only">Search</label>
-                      <input type="text" class="form-control" name="search" id="search" placeholder="Search">
+                      <input type="text" class="form-control" name="search" id="search" placeholder="Search" required>
+                      <input type="hidden" name="page" id="page" value="1">
                   </div>
               </div>
           </div>
       </form>
   </div>
+  <script type="text/javascript">
+      $(document).ready(function() {
+          $('#search').focus();
+      });
+  </script>
   </body>
 </html>

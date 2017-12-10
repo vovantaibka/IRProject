@@ -17,6 +17,10 @@
 
     <%--Bootstrap CSS--%>
     <%--<link href=”bootstrap/css/bootstrap.css” rel=”stylesheet” type=”text/css” />--%>
+
+    <%--Jquery--%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <%--<script type=”text/javascript” src=”bootstrap/js/bootstrap.js”></script>--%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -48,6 +52,9 @@
         .search-form #item-list .title {
             font-size: large;
         }
+        .search-form #item-list .title a {
+            color: #1a0dab;
+        }
         .search-form #item-list .url {
             color: #006621;
         }
@@ -74,40 +81,11 @@
             box-shadow: none;
             display:block;
         }
-        /*.search-form .form-group input.form-control::-webkit-input-placeholder {*/
-        /*display: none;*/
-        /*}*/
-        /*.search-form .form-group input.form-control:-moz-placeholder {*/
-        /*!* Firefox 18- *!*/
-        /*display: none;*/
-        /*}*/
-        /*.search-form .form-group input.form-control::-moz-placeholder {*/
-        /*!* Firefox 19+ *!*/
-        /*display: none;*/
-        /*}*/
-        /*.search-form .form-group input.form-control:-ms-input-placeholder {*/
-        /*display: none;*/
-        /*}*/
-        /*.search-form .form-group:hover {*/
-        /*width: 100%;*/
-        /*border-radius: 4px 25px 25px 4px;*/
-        /*}*/
-        /*.search-form .form-group span.form-control-feedback {*/
-        /*position: absolute;*/
-        /*top: -1px;*/
-        /*right: -2px;*/
-        /*z-index: 2;*/
-        /*display: block;*/
-        /*width: 34px;*/
-        /*height: 34px;*/
-        /*line-height: 34px;*/
-        /*text-align: center;*/
-        /*color: #3596e0;*/
-        /*left: initial;*/
-        /*font-size: 14px;*/
-        /*}*/
         .search-form .item-list .item a {
             cursor: pointer;
+        }
+        .modal-dialog {
+            margin-top: 150px!important;
         }
         .col-center-block {
             float: none;
@@ -145,7 +123,7 @@
                 <h1>Information Retrieval Tool</h1>
             </div>
         </div>
-        <form action="/processquery" class="search-form" method="get">
+        <form id="search-form" action="/processquery" class="search-form" method="get">
             <div id="input-search" class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
@@ -156,90 +134,130 @@
                         <input type="text" class="form-control" name="search" id="search" placeholder="Search" value="">
                         <% } else { %>
                         <label for="search" class="sr-only">Search</label>
-                        <input type="text" class="form-control" name="search" id="search" placeholder="Search" value="<%=query%>">
+                        <input type="text" class="form-control" name="search" id="search" placeholder="Search" value="<%=query%>" required>
                         <% } %>
+                        <input type="hidden" name="page" id="page" value="1">
                     </div>
                 </div>
             </div>
-            <div id="item-list" class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-10">
-                    <div class="item-list">
-                        <table>
-                            <c:forEach items="${results}" var="result">
-                                <div class="item">
-                                    <tr>
-                                        <td class="title">
-                                            <a href="<c:out value="${result['url']}"/>"><c:out value="${result['title']}"/>
-                                                <c:choose>
-                                                    <c:when test="${result['relevance'] == 1}">
-                                                        <span class="fa fa-check" aria-hidden="true"></span>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <span class="fa fa-times no-relevance" aria-hidden="true"></span>
-                                                    </c:otherwise>
-                                                </c:choose>
+            <c:choose>
+                <c:when test="${fn:length(results) > 0}">
+                    <div id="item-list" class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <div class="item-list">
+                                <table>
+                                    <c:forEach items="${results}" var="result">
+                                        <div class="item">
+                                            <tr>
+                                                <td class="title">
+                                                    <a href="<c:out value="${result['url']}"/>"><c:out value="${result['title']}"/>
+                                                        <c:choose>
+                                                            <c:when test="${result['relevance'] == 1}">
+                                                                <span class="fa fa-check" aria-hidden="true"></span>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <span class="fa fa-times no-relevance" aria-hidden="true"></span>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="url">
+                                                    <c:choose>
+                                                        <c:when test="${fn:length(result['url']) <= 110}">
+                                                            <c:out value="${result['url']}"/>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <c:out value="${fn:substring(result['url'], 0, 110)}..."/>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="highlightedText">${result['highlightedText']}</td>
+                                            </tr>
+                                        </div>
+                                    </c:forEach>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="pagination" class="row">
+                        <div class="col-center-block">
+                            <div class="pagination">
+                                <nav aria-label="Page navigation">
+                                    <% int totalPages = (int) request.getAttribute("totalPages"); %>
+                                    <ul class="pagination">
+                                        <% int currentPage = (int) request.getAttribute("page"); %>
+                                        <% if(currentPage > 1) { %>
+                                        <li>
+                                            <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=(currentPage - 1)%>" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
                                             </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="url">
-                                            <c:choose>
-                                                <c:when test="${fn:length(result['url']) <= 110}">
-                                                    <c:out value="${result['url']}"/>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <c:out value="${fn:substring(result['url'], 0, 110)}..."/>
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="highlightedText">${result['highlightedText']}</td>
-                                    </tr>
-                                </div>
-                            </c:forEach>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div id="pagination" class="row">
-                <div class="col-center-block">
-                    <div class="pagination">
-                        <nav aria-label="Page navigation">
-                            <% int totalPages = (int) request.getAttribute("totalPages"); %>
-                            <ul class="pagination">
-                                <% int currentPage = (int) request.getAttribute("page"); %>
-                                <% if(currentPage > 1) { %>
-                                <li>
-                                    <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=(currentPage - 1)%>" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <% } %>
-                                <%  for (int i = 1; i <= totalPages; i++) { %>
-                                    <% if(i == currentPage) { %>
+                                        </li>
+                                        <% } %>
+                                        <%  for (int i = 1; i <= totalPages; i++) { %>
+                                        <% if(i == currentPage) { %>
                                         <li class="page current-page">
                                             <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=i%>"><%=i%></a>
                                         </li>
-                                    <% } else { %>
+                                        <% } else { %>
                                         <li class="page">
                                             <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=i%>"><%=i%></a>
                                         </li>
-                                    <% } %>
-                                <% } %>
-                                <% if(currentPage != totalPages) { %>
-                                <li>
-                                    <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=(currentPage + 1)%>" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                                <% } %>
-                            </ul>
-                        </nav>
+                                        <% } %>
+                                        <% } %>
+                                        <% if(currentPage != totalPages) { %>
+                                        <li>
+                                            <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=(currentPage + 1)%>" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                        <% } %>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </c:when>
+                <c:otherwise>
+                    <%--Demo popup--%>
+                    <%--<h2>Modal Example</h2>--%>
+                    <%--<!-- Button to Open the Modal -->--%>
+                    <%--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">--%>
+                    <%--Open modal--%>
+                    <%--</button>--%>
+
+                    <!-- The Modal -->
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Notification</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    Your query returned no results
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button id="close-popup" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <%--End Popup--%>
+                </c:otherwise>
+            </c:choose>
         </form>
     </div>
     <div class="alert alert-info total-hits" role="alert">
@@ -250,5 +268,17 @@
             Page<strong> ${page} </strong>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#search').focus();
+
+            //If query does not return results
+            $('#myModal').modal('show');
+        });
+        $('#close-popup').click(function() {
+            $(':input','#search-form').val("");
+            $('#search').focus();
+        })
+    </script>
 </body>
 </html>
