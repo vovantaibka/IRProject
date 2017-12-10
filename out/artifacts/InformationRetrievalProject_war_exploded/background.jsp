@@ -13,7 +13,7 @@
     <style type="text/css">
         @import url(https://fonts.googleapis.com/css?family=Crafty+Girls);
 
-        h1 {
+        .title-walker {
             font-family: 'Crafty Girls';
             text-align: center;
         }
@@ -32,29 +32,27 @@
     </style>
 </head>
 <body>
-    <h1>Haters gonna hate</h1>
+    <h1 class="title-walker">Haters gonna hate</h1>
     <img id="walker" src="http://media.giphy.com/media/XGnWMiVXL87Xa/giphy.gif">
     <script type="text/javascript">
-        $(document).ready(function() {
-            // Get the walker image:
-            var walker = document.getElementById('walker');
-            var walkingLeft = true;
-            var dist = 1;
-            var leftBorder = 1240;
-            var rightBorder = 20;
-            var position = rightBorder;
+        // Get the walker image:
+        var walker = document.getElementById('walker');
+        var walkingLeft = true;
+        var dist = 1;
+        var leftBorder = 1100;
+        var rightBorder = 20;
+        var position = rightBorder;
 
-            function check(){
-                position += walkingLeft ? dist : -dist;
-                walker.style.right = position +'px';
-                if (position > leftBorder || position < rightBorder){
-                    walkingLeft = !walkingLeft;
-                    walker.classList.toggle('flip')
-                }
+        function check(){
+            position += walkingLeft ? dist : -dist;
+            walker.style.right = position +'px';
+            if (position > leftBorder || position < rightBorder){
+                walkingLeft = !walkingLeft;
+                walker.classList.toggle('flip')
             }
+        }
 
-            setInterval(check, 20)
-        });
+        setInterval(check, 20)
     </script>
 </body>
 </html>

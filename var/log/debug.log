@@ -284,3 +284,30 @@
 08:52:43.438 [http-nio-8080-exec-10] INFO  webapp.Search - Loading index from /home/francy/IdeaProjects/InformationRetrievalProject/indexingJSONData
 08:52:43.438 [http-nio-8080-exec-10] INFO  webapp.Search - /home/francy/Documents/Java/apache-tomcat-8.5.23/bin path to the property file
 08:52:43.444 [http-nio-8080-exec-10] INFO  webapp.ProcessQuery - Query: abcxyz - Page: 1
+09:19:51.398 [http-nio-8080-exec-4] INFO  webapp.Search - Loading index from /home/francy/IdeaProjects/InformationRetrievalProject/indexingJSONData
+09:19:51.404 [http-nio-8080-exec-4] INFO  webapp.Search - /home/francy/Documents/Java/apache-tomcat-8.5.23/bin path to the property file
+09:19:51.638 [http-nio-8080-exec-4] INFO  webapp.ProcessQuery - Query: Machine Learning - Page: 1
+09:20:44.761 [http-nio-8080-exec-5] INFO  webapp.Search - Loading index from /home/francy/IdeaProjects/InformationRetrievalProject/indexingJSONData
+09:20:44.771 [http-nio-8080-exec-5] INFO  webapp.Search - /home/francy/Documents/Java/apache-tomcat-8.5.23/bin path to the property file
+09:20:45.103 [http-nio-8080-exec-5] INFO  webapp.ProcessQuery - Query: abcxyz - Page: 1
+09:21:08.127 [http-nio-8080-exec-6] INFO  webapp.Search - Loading index from /home/francy/IdeaProjects/InformationRetrievalProject/indexingJSONData
+09:21:08.128 [http-nio-8080-exec-6] INFO  webapp.Search - /home/francy/Documents/Java/apache-tomcat-8.5.23/bin path to the property file
+09:21:08.132 [http-nio-8080-exec-6] INFO  webapp.ProcessQuery - Query: Machine Learning - Page: 
+09:21:17.591 [http-nio-8080-exec-8] INFO  webapp.Search - Loading index from /home/francy/IdeaProjects/InformationRetrievalProject/indexingJSONData
+09:21:17.591 [http-nio-8080-exec-8] INFO  webapp.Search - /home/francy/Documents/Java/apache-tomcat-8.5.23/bin path to the property file
+09:21:17.595 [http-nio-8080-exec-8] INFO  webapp.ProcessQuery - Query: abcxyz - Page: 1
+09:22:49.635 [http-nio-8080-exec-5] INFO  webapp.Search - Loading index from /home/francy/IdeaProjects/InformationRetrievalProject/indexingJSONData
+09:22:49.642 [http-nio-8080-exec-5] INFO  webapp.Search - /home/francy/Documents/Java/apache-tomcat-8.5.23/bin path to the property file
+09:22:49.920 [http-nio-8080-exec-5] INFO  webapp.ProcessQuery - Query: abcxyz - Page: 1
+09:24:21.205 [http-nio-8080-exec-4] INFO  webapp.Search - Loading index from /home/francy/IdeaProjects/InformationRetrievalProject/indexingJSONData
+09:24:21.215 [http-nio-8080-exec-4] INFO  webapp.Search - /home/francy/Documents/Java/apache-tomcat-8.5.23/bin path to the property file
+09:24:21.622 [http-nio-8080-exec-4] INFO  webapp.ProcessQuery - Query: abcxyz - Page: 1
+09:25:22.313 [http-nio-8080-exec-4] INFO  webapp.Search - Loading index from /home/francy/IdeaProjects/InformationRetrievalProject/indexingJSONData
+09:25:22.323 [http-nio-8080-exec-4] INFO  webapp.Search - /home/francy/Documents/Java/apache-tomcat-8.5.23/bin path to the property file
+09:25:22.626 [http-nio-8080-exec-4] INFO  webapp.ProcessQuery - Query: abcxyz - Page: 1
+09:26:20.131 [http-nio-8080-exec-4] INFO  webapp.Search - Loading index from /home/francy/IdeaProjects/InformationRetrievalProject/indexingJSONData
+09:26:20.137 [http-nio-8080-exec-4] INFO  webapp.Search - /home/francy/Documents/Java/apache-tomcat-8.5.23/bin path to the property file
+09:26:20.397 [http-nio-8080-exec-4] INFO  webapp.ProcessQuery - Query: abcxyz - Page: 1
+09:27:19.483 [http-nio-8080-exec-5] INFO  webapp.Search - Loading index from /home/francy/IdeaProjects/InformationRetrievalProject/indexingJSONData
+09:27:19.489 [http-nio-8080-exec-5] INFO  webapp.Search - /home/francy/Documents/Java/apache-tomcat-8.5.23/bin path to the property file
+09:27:19.721 [http-nio-8080-exec-5] INFO  webapp.ProcessQuery - Query: abcxyz - Page: 1

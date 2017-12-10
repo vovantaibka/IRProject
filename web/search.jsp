@@ -254,7 +254,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <jsp:include page="background.jsp"/>
                     <%--End Popup--%>
                 </c:otherwise>
             </c:choose>
