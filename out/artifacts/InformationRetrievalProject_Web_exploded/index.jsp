@@ -55,38 +55,6 @@
               box-shadow: none;
               display:block;
           }
-          /*.search-form .form-group input.form-control::-webkit-input-placeholder {*/
-              /*display: none;*/
-          /*}*/
-          /*.search-form .form-group input.form-control:-moz-placeholder {*/
-              /*!* Firefox 18- *!*/
-              /*display: none;*/
-          /*}*/
-          /*.search-form .form-group input.form-control::-moz-placeholder {*/
-              /*!* Firefox 19+ *!*/
-              /*display: none;*/
-          /*}*/
-          /*.search-form .form-group input.form-control:-ms-input-placeholder {*/
-              /*display: none;*/
-          /*}*/
-          /*.search-form .form-group:hover {*/
-              /*width: 100%;*/
-              /*border-radius: 4px 25px 25px 4px;*/
-          /*}*/
-          /*.search-form .form-group span.form-control-feedback {*/
-              /*position: absolute;*/
-              /*top: -1px;*/
-              /*right: -2px;*/
-              /*z-index: 2;*/
-              /*display: block;*/
-              /*width: 34px;*/
-              /*height: 34px;*/
-              /*line-height: 34px;*/
-              /*text-align: center;*/
-              /*color: #3596e0;*/
-              /*left: initial;*/
-              /*font-size: 14px;*/
-          /*}*/
       </style>
   </head>
   <body>

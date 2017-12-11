@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Jersey-2.2">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/cglib-2.2.0-b14.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/hk2-api-2.2.0-b14.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/asm-all-repackaged-2.2.0-b14.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/hk2-utils-2.2.0-b14.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/hk2-locator-2.2.0-b14.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/javax.annotation-api-1.2.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/javax.inject-2.2.0-b14.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/guava-14.0.1.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/osgi-resource-locator-1.0.1.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jaxb-api-2.2.7.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/org.osgi.core-4.2.0.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/persistence-api-1.0.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/validation-api-1.1.0.Final.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jersey-common.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/javax.ws.rs-api-2.0.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jersey-container-servlet.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jersey-client.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jersey-server.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jersey-container-servlet-core.jar" />
+  </library>
+  <library name="activation">
+    <archive path="/home/francy/Documents/Java/log4j/jaf-1.1.1/activation.jar" />
+  </library>
+  <library name="apache-log4j-2.10">
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-api-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-jcl-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-jul-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-web-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-core-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-taglib-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-1.2-api-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-couchdb-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-jmx-gui-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-mongodb-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-flume-ng-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-appserver-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-cassandra-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-iostreams-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-liquibase-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-core-2.10.0-tests.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-slf4j-impl-2.10.0.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-api-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-api-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-jcl-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-jcl-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-jul-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-jul-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-web-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-web-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-core-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-core-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-taglib-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-taglib-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-1.2-api-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-1.2-api-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-couchdb-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-couchdb-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-jmx-gui-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-jmx-gui-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-mongodb-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-mongodb-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-flume-ng-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-flume-ng-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-appserver-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-appserver-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-cassandra-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-cassandra-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-iostreams-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-iostreams-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-liquibase-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-liquibase-2.10.0-sources.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-slf4j-impl-2.10.0-javadoc.jar" />
+    <archive path="/home/francy/Documents/Java/log4j/apache-log4j-2.10.0-bin/log4j-slf4j-impl-2.10.0-sources.jar" />
+  </library>
+  <library name="com.carrotsearch:java-sizeof:0.0.5">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/java-sizeof-0.0.5.jar" />
+  </library>
+  <library name="com.googlecode.json-simple:json-simple:1.1">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/json-simple-1.1.jar" />
+  </library>
+  <library name="commons-beanutils:commons-beanutils:1.9.3">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/commons-beanutils-1.9.3.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/commons-logging-1.2.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/commons-collections-3.2.2.jar" />
+  </library>
+  <library name="commons-collections:commons-collections:3.2.2">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/commons-collections-3.2.2.jar" />
+  </library>
+  <library name="commons-logging:commons-logging:1.2">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/commons-logging-1.2.jar" />
+  </library>
+  <library name="javax.servlet:javax.servlet-api:3.1.0">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/javax.servlet-api-3.1.0.jar" />
+  </library>
+  <library name="jstl:jstl:1.2">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jstl-1.2.jar" />
+  </library>
+  <library name="lucene-analyzers-common-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/analysis/common/lucene-analyzers-common-7.0.0.jar" />
+  </library>
+  <library name="lucene-backward-codecs-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/backward-codecs/lucene-backward-codecs-7.0.0.jar" />
+  </library>
+  <library name="lucene-benchmark-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/benchmark/lucene-benchmark-7.0.0.jar" />
+  </library>
+  <library name="lucene-classification-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/classification/lucene-classification-7.0.0.jar" />
+  </library>
+  <library name="lucene-codecs-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/codecs/lucene-codecs-7.0.0.jar" />
+  </library>
+  <library name="lucene-core-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/core/lucene-core-7.0.0.jar" />
+  </library>
+  <library name="lucene-demo-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/demo/lucene-demo-7.0.0.jar" />
+  </library>
+  <library name="lucene-expressions-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/expressions/lucene-expressions-7.0.0.jar" />
+  </library>
+  <library name="lucene-facet-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/facet/lucene-facet-7.0.0.jar" />
+  </library>
+  <library name="lucene-grouping-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/grouping/lucene-grouping-7.0.0.jar" />
+  </library>
+  <library name="lucene-highlighter-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/highlighter/lucene-highlighter-7.0.0.jar" />
+  </library>
+  <library name="lucene-join-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/join/lucene-join-7.0.0.jar" />
+  </library>
+  <library name="lucene-memory-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/memory/lucene-memory-7.0.0.jar" />
+  </library>
+  <library name="lucene-misc-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/misc/lucene-misc-7.0.0.jar" />
+  </library>
+  <library name="lucene-queries-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/queries/lucene-queries-7.0.0.jar" />
+  </library>
+  <library name="lucene-queryparser-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/queryparser/lucene-queryparser-7.0.0.jar" />
+  </library>
+  <library name="lucene-replicator-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/replicator/lucene-replicator-7.0.0.jar" />
+  </library>
+  <library name="lucene-sandbox-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/sandbox/lucene-sandbox-7.0.0.jar" />
+  </library>
+  <library name="lucene-spatial3d-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/spatial3d/lucene-spatial3d-7.0.0.jar" />
+  </library>
+  <library name="lucene-spatial-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/spatial/lucene-spatial-7.0.0.jar" />
+  </library>
+  <library name="lucene-spatial-extras-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/spatial-extras/lucene-spatial-extras-7.0.0.jar" />
+  </library>
+  <library name="lucene-suggest-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/suggest/lucene-suggest-7.0.0.jar" />
+  </library>
+  <library name="lucene-test-framework-7.0.0">
+    <archive path="/home/francy/Documents/Java/lucene-7.0.0/test-framework/lucene-test-framework-7.0.0.jar" />
+  </library>
+  <library name="org.apache.commons:commons-configuration2:2.2">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/commons-configuration2-2.2.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/commons-lang3-3.6.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/commons-logging-1.2.jar" />
+  </library>
+  <library name="org.apache.commons:commons-lang3:3.6">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/commons-lang3-3.6.jar" />
+  </library>
+  <library name="org.eclipse.jetty:jetty-http:9.4.7.v20170914">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jetty-http-9.4.7.v20170914.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jetty-util-9.4.7.v20170914.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jetty-io-9.4.7.v20170914.jar" />
+  </library>
+  <library name="org.eclipse.jetty:jetty-io:9.4.7.v20170914">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jetty-io-9.4.7.v20170914.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jetty-util-9.4.7.v20170914.jar" />
+  </library>
+  <library name="org.eclipse.jetty:jetty-server:9.4.7.v20170914">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jetty-server-9.4.7.v20170914.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/javax.servlet-api-3.1.0.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jetty-http-9.4.7.v20170914.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jetty-util-9.4.7.v20170914.jar" />
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jetty-io-9.4.7.v20170914.jar" />
+  </library>
+  <library name="org.eclipse.jetty:jetty-util:9.4.7.v20170914">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jetty-util-9.4.7.v20170914.jar" />
+  </library>
+  <library name="org.jsoup:jsoup:1.10.3">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/jsoup-1.10.3.jar" />
+  </library>
+  <library name="org.locationtech.spatial4j:spatial4j:0.6">
+    <archive path="/home/francy/IdeaProjects/InformationRetrievalProject/lib/spatial4j-0.6.jar" />
+  </library>
+</eclipse-userlibraries>
+

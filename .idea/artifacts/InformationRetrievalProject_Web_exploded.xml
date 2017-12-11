@@ -1,13 +1,15 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" build-on-make="true" name="InformationRetrievalProject:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/InformationRetrievalProject_war_exploded</output-path>
+  <artifact type="exploded-war" name="InformationRetrievalProject:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/InformationRetrievalProject_Web_exploded</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="InformationRetrievalProject/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="InformationRetrievalProject" />
+          <element id="javaee-facet-classes" facet="InformationRetrievalProject/web/Web" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="apache-log4j-2.10" />
+          <element id="library" level="project" name="activation" />
           <element id="library" level="project" name="Jersey-2.2" />
           <element id="library" level="project" name="lucene-analyzers-common-7.0.0" />
           <element id="library" level="project" name="lucene-backward-codecs-7.0.0" />
@@ -32,7 +34,6 @@
           <element id="library" level="project" name="lucene-spatial3d-7.0.0" />
           <element id="library" level="project" name="lucene-suggest-7.0.0" />
           <element id="library" level="project" name="lucene-test-framework-7.0.0" />
-          <element id="library" level="project" name="com.globalmentor:globalmentor-apache-commons-configuration2:1.0.0" />
           <element id="library" level="project" name="com.googlecode.json-simple:json-simple:1.1" />
           <element id="library" level="project" name="com.carrotsearch:java-sizeof:0.0.5" />
           <element id="library" level="project" name="commons-beanutils:commons-beanutils:1.9.3" />
@@ -40,13 +41,12 @@
           <element id="library" level="project" name="commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="org.apache.commons:commons-configuration2:2.2" />
           <element id="library" level="project" name="org.apache.commons:commons-lang3:3.6" />
-          <element id="library" level="project" name="org.apache.logging.log4j:log4j-api:2.9.1" />
-          <element id="library" level="project" name="org.apache.logging.log4j:log4j-core:2.9.1" />
           <element id="library" level="project" name="org.eclipse.jetty:jetty-http:9.4.7.v20170914" />
           <element id="library" level="project" name="org.eclipse.jetty:jetty-io:9.4.7.v20170914" />
           <element id="library" level="project" name="org.eclipse.jetty:jetty-util:9.4.7.v20170914" />
           <element id="library" level="project" name="org.jsoup:jsoup:1.10.3" />
           <element id="library" level="project" name="org.locationtech.spatial4j:spatial4j:0.6" />
+          <element id="library" level="project" name="jstl:jstl:1.2" />
         </element>
       </element>
     </root>

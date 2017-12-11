@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/out/test/InformationRetrievalProject"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="Tomcat 8.5.23" scope="PROVIDED"/>
+	<levels>
+		<level name="Jersey-2.2" value="project"/>
+		<level name="Tomcat 8.5.23" value="application_server_libraries"/>
+		<level name="lucene-analyzers-common-7.0.0" value="project"/>
+		<level name="lucene-backward-codecs-7.0.0" value="project"/>
+		<level name="lucene-benchmark-7.0.0" value="project"/>
+		<level name="lucene-classification-7.0.0" value="project"/>
+		<level name="lucene-codecs-7.0.0" value="project"/>
+		<level name="lucene-core-7.0.0" value="project"/>
+		<level name="lucene-demo-7.0.0" value="project"/>
+		<level name="lucene-expressions-7.0.0" value="project"/>
+		<level name="lucene-facet-7.0.0" value="project"/>
+		<level name="lucene-grouping-7.0.0" value="project"/>
+		<level name="lucene-highlighter-7.0.0" value="project"/>
+		<level name="lucene-join-7.0.0" value="project"/>
+		<level name="lucene-memory-7.0.0" value="project"/>
+		<level name="lucene-misc-7.0.0" value="project"/>
+		<level name="lucene-queries-7.0.0" value="project"/>
+		<level name="lucene-queryparser-7.0.0" value="project"/>
+		<level name="lucene-replicator-7.0.0" value="project"/>
+		<level name="lucene-sandbox-7.0.0" value="project"/>
+		<level name="lucene-spatial-7.0.0" value="project"/>
+		<level name="lucene-spatial-extras-7.0.0" value="project"/>
+		<level name="lucene-spatial3d-7.0.0" value="project"/>
+		<level name="lucene-suggest-7.0.0" value="project"/>
+		<level name="lucene-test-framework-7.0.0" value="project"/>
+		<level name="com.googlecode.json-simple:json-simple:1.1" value="project"/>
+		<level name="com.carrotsearch:java-sizeof:0.0.5" value="project"/>
+		<level name="commons-beanutils:commons-beanutils:1.9.3" value="project"/>
+		<level name="commons-collections:commons-collections:3.2.2" value="project"/>
+		<level name="commons-logging:commons-logging:1.2" value="project"/>
+		<level name="javax.servlet:javax.servlet-api:3.1.0" value="project"/>
+		<level name="org.apache.commons:commons-configuration2:2.2" value="project"/>
+		<level name="org.apache.commons:commons-lang3:3.6" value="project"/>
+		<level name="org.eclipse.jetty:jetty-http:9.4.7.v20170914" value="project"/>
+		<level name="org.eclipse.jetty:jetty-io:9.4.7.v20170914" value="project"/>
+		<level name="org.eclipse.jetty:jetty-server:9.4.7.v20170914" value="project"/>
+		<level name="org.eclipse.jetty:jetty-util:9.4.7.v20170914" value="project"/>
+		<level name="org.jsoup:jsoup:1.10.3" value="project"/>
+		<level name="org.locationtech.spatial4j:spatial4j:0.6" value="project"/>
+		<level name="jstl:jstl:1.2" value="project"/>
+		<level name="activation" value="project"/>
+		<level name="apache-log4j-2.10" value="project"/>
+	</levels>
+</component>
