@@ -82,49 +82,39 @@ public class IndexFile {
     {
         //JSON parser object to parse read file
         JSONParser jsonParser = new JSONParser();
-        try (FileReader reader = new FileReader("group1.json"))
+        try (FileReader reader = new FileReader("all.json"))
         {
             JSONObject root = (JSONObject) jsonParser.parse(reader);
-            JSONArray collection = (JSONArray) root.get("collection");
-            collection.forEach(q -> parseQueryDetailObject(writer, (JSONObject) q));
+            JSONArray collection = (JSONArray) root.get("documents");
+            for (Object obj: collection) {
+                //
+                JSONObject siteDetail = (JSONObject)obj;
+                try {
+                    Document doc = new Document();
+
+                    String url = (String) siteDetail.get("url");
+                    Field urlField = new StringField("url", url, Field.Store.YES);
+                    doc.add(urlField);
+
+                    String title = (String) siteDetail.get("title");
+                    Field titleField = new StringField("title", title, Field.Store.YES);
+                    doc.add(titleField);
+
+                    String content = (String) siteDetail.get("content");
+                    Field contentField = new TextField("content", content, Field.Store.YES);
+                    doc.add(contentField);
+
+                    writer.addDocument(doc);
+                } catch (IOException ex) {
+                    logger.info("Error adding documents to the index. " +  ex.getMessage());
+                }
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
-        }
-    }
-
-    private static void parseQueryDetailObject(IndexWriter writer, JSONObject queryDetail)
-    {
-        JSONArray sites = (JSONArray)queryDetail.get("sites");
-        for (Object obj: sites) {
-            //
-            JSONObject siteDetail = (JSONObject)obj;
-            try {
-                Document doc = new Document();
-
-                String url = (String) siteDetail.get("url");
-                Field urlField = new StringField("url", url, Field.Store.YES);
-                doc.add(urlField);
-
-                String title = (String) siteDetail.get("title");
-                Field titleField = new StringField("title", title, Field.Store.YES);
-                doc.add(titleField);
-
-                String content = (String) siteDetail.get("content");
-                Field contentField = new TextField("content", content, Field.Store.YES);
-                doc.add(contentField);
-
-                String relevance = (String) siteDetail.get("relevance");
-                Field relevanceField = new StringField("relevance", relevance, Field.Store.YES);
-                doc.add(relevanceField);
-
-                writer.addDocument(doc);
-            } catch (IOException ex) {
-                logger.info("Error adding documents to the index. " +  ex.getMessage());
-            }
         }
     }
 }

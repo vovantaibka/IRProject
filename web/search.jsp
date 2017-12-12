@@ -43,9 +43,9 @@
         #item-list {
             padding-top: 25px;
         }
-        .no-relevance {
-            color: red!important;
-        }
+        /*.no-relevance {*/
+        /*color: red!important;*/
+        /*}*/
         .search-form {
             margin-bottom: 48px;
         }
@@ -84,6 +84,17 @@
         .search-form .item-list .item a {
             cursor: pointer;
         }
+        .search-form #item-list .vertical-list {
+            position: fixed;
+            right: 0px;
+        }
+        .search-form #item-list .vertical-list .current-page {
+            background-color: #d1ecf1;
+        }
+        .search-form #item-list .vertical-list .current-page a {
+            color: #0c5460;
+            font-weight: bold;
+        }
         .modal-dialog {
             margin-top: 150px!important;
         }
@@ -93,6 +104,7 @@
             margin: 0 auto;
             /* margin-left: auto; margin-right: auto; */
         }
+
         .col-center-block .pagination .current-page a {
             font-size: medium;
             color: white!important;
@@ -116,169 +128,172 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div id="title" class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6" style="text-align: center">
-                <h1>Information Retrieval Tool</h1>
-            </div>
+<% int totalPages = (int) request.getAttribute("totalPages"); %>
+<% int currentPage = (int) request.getAttribute("page"); %>
+
+<div class="container">
+    <div id="title" class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="text-align: center">
+            <h1>Information Retrieval Tool</h1>
         </div>
-        <form id="search-form" action="/processquery" class="search-form" method="get">
-            <div id="input-search" class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <div class="form-group has-feedback">
-                        <% String query = (String) request.getAttribute("query");%>
-                        <% if (query==null || query.isEmpty()) { %>
-                        <label for="search" class="sr-only">Search</label>
-                        <input type="text" class="form-control" name="search" id="search" placeholder="Search" value="">
-                        <% } else { %>
-                        <label for="search" class="sr-only">Search</label>
-                        <input type="text" class="form-control" name="search" id="search" placeholder="Search" value="<%=query%>" required>
-                        <% } %>
-                        <input type="hidden" name="page" id="page" value="1">
-                    </div>
+    </div>
+    <form id="search-form" action="/processquery" class="search-form" method="get">
+        <div id="input-search" class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group has-feedback">
+                    <% String query = (String) request.getAttribute("query");%>
+                    <% if (query==null || query.isEmpty()) { %>
+                    <label for="search" class="sr-only">Search</label>
+                    <input type="text" class="form-control" name="search" id="search" placeholder="Search" value="">
+                    <% } else { %>
+                    <label for="search" class="sr-only">Search</label>
+                    <input type="text" class="form-control" name="search" id="search" placeholder="Search" value="<%=query%>" required>
+                    <% } %>
+                    <input type="hidden" name="page" id="page" value="1">
                 </div>
             </div>
-            <c:choose>
-                <c:when test="${fn:length(results) > 0}">
-                    <div id="item-list" class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
-                            <div class="item-list">
-                                <table>
-                                    <c:forEach items="${results}" var="result">
-                                        <div class="item">
-                                            <tr>
-                                                <td class="title">
-                                                    <a href="<c:out value="${result['url']}"/>"><c:out value="${result['title']}"/>
-                                                        <c:choose>
-                                                            <c:when test="${result['relevance'] == 1}">
-                                                                <span class="fa fa-check" aria-hidden="true"></span>
-                                                            </c:when>
-                                                            <c:otherwise>
-                                                                <span class="fa fa-times no-relevance" aria-hidden="true"></span>
-                                                            </c:otherwise>
-                                                        </c:choose>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="url">
-                                                    <c:choose>
-                                                        <c:when test="${fn:length(result['url']) <= 110}">
-                                                            <c:out value="${result['url']}"/>
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            <c:out value="${fn:substring(result['url'], 0, 110)}..."/>
-                                                        </c:otherwise>
-                                                    </c:choose>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="highlightedText">${result['highlightedText']}</td>
-                                            </tr>
-                                        </div>
-                                    </c:forEach>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="pagination" class="row">
-                        <div class="col-center-block">
-                            <div class="pagination">
-                                <nav aria-label="Page navigation">
-                                    <% int totalPages = (int) request.getAttribute("totalPages"); %>
-                                    <ul class="pagination">
-                                        <% int currentPage = (int) request.getAttribute("page"); %>
-                                        <% if(currentPage > 1) { %>
-                                        <li>
-                                            <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=(currentPage - 1)%>" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <% } %>
-                                        <%  for (int i = 1; i <= totalPages; i++) { %>
-                                        <% if(i == currentPage) { %>
-                                        <li class="page current-page">
-                                            <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=i%>"><%=i%></a>
-                                        </li>
-                                        <% } else { %>
-                                        <li class="page">
-                                            <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=i%>"><%=i%></a>
-                                        </li>
-                                        <% } %>
-                                        <% } %>
-                                        <% if(currentPage != totalPages) { %>
-                                        <li>
-                                            <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=(currentPage + 1)%>" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                        <% } %>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </c:when>
-                <c:otherwise>
-                    <%--Demo popup--%>
-                    <%--<h2>Modal Example</h2>--%>
-                    <%--<!-- Button to Open the Modal -->--%>
-                    <%--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">--%>
-                    <%--Open modal--%>
-                    <%--</button>--%>
-
-                    <!-- The Modal -->
-                    <div class="modal fade" id="myModal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Notification</h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
-
-                                <!-- Modal body -->
-                                <div class="modal-body">
-                                    Your query returned no results
-                                </div>
-
-                                <!-- Modal footer -->
-                                <div class="modal-footer">
-                                    <button id="close-popup" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <jsp:include page="background.jsp"/>
-                    <%--End Popup--%>
-                </c:otherwise>
-            </c:choose>
-        </form>
-    </div>
-    <div class="alert alert-info total-hits" role="alert">
-        <div>
-            There are<strong> ${totalHits} </strong>results
         </div>
-        <div style="position: fixed; bottom: 12px; right: 15px;">
-            Page<strong> ${page} </strong>
-        </div>
+        <c:choose>
+            <c:when test="${fn:length(results) > 0}">
+                <div id="item-list" class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="item-list">
+                            <table>
+                                <c:forEach items="${results}" var="result">
+                                    <div class="item">
+                                        <tr>
+                                            <td class="title">
+                                                <a href="<c:out value="${result['url']}"/>"><c:out value="${result['title']}"/>
+                                                        <%--<c:choose>--%>
+                                                        <%--<c:when test="${result['relevance'] == 1}">--%>
+                                                        <%--<span class="fa fa-check" aria-hidden="true"></span>--%>
+                                                        <%--</c:when>--%>
+                                                        <%--<c:otherwise>--%>
+                                                        <%--<span class="fa fa-times no-relevance" aria-hidden="true"></span>--%>
+                                                        <%--</c:otherwise>--%>
+                                                        <%--</c:choose>--%>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="url">
+                                                <c:choose>
+                                                    <c:when test="${fn:length(result['url']) <= 110}">
+                                                        <c:out value="${result['url']}"/>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <c:out value="${fn:substring(result['url'], 0, 110)}..."/>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="highlightedText">${result['highlightedText']}</td>
+                                        </tr>
+                                    </div>
+                                </c:forEach>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="pagination vertical-list">
+                                <%--<nav aria-label="Page navigation">--%>
+                                <%--<% int totalPages = (int) request.getAttribute("totalPages"); %>--%>
+                            <ul class="pagination list-group">
+                                    <%--<% int currentPage = (int) request.getAttribute("page"); %>--%>
+                                <% if(currentPage > 1) { %>
+                                <li class="list-group-item">
+                                    <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=(currentPage - 1)%>" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <% } %>
+                                <% int startPage = (totalPages < currentPage + 4 ? totalPages - 4 : currentPage); %>
+                                <% int maxPage = (totalPages > currentPage + 4 ? currentPage + 4 : totalPages); %>
+                                <%  for (int i = startPage; i <= maxPage; i++) { %>
+                                <% if(i == currentPage) { %>
+                                <li class="page current-page list-group-item">
+                                    <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=i%>"><%=i%></a>
+                                </li>
+                                <% } else { %>
+                                <li class="page list-group-item">
+                                    <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=i%>"><%=i%></a>
+                                </li>
+                                <% } %>
+                                <% } %>
+                                <% if(currentPage != totalPages) { %>
+                                <li class="list-group-item">
+                                    <a href="/processquery?search=<%=request.getParameter("search")%>&page=<%=(currentPage + 1)%>" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                                <% } %>
+                            </ul>
+                                <%--</nav>--%>
+                        </div>
+                    </div>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <!-- The Modal -->
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Notification</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                Your query returned no results
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button id="close-popup" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <jsp:include page="background.jsp"/>
+                <%--End Popup--%>
+            </c:otherwise>
+        </c:choose>
+    </form>
+</div>
+<div class="alert alert-info total-hits" role="alert">
+    <% String str_query; %>
+    <c:choose>
+        <c:when test="${fn:length(query) > 50}">
+            <%--<% str_query = query; %>--%>
+            <c:set var="str_query" scope="session" value="${query}"/>
+        </c:when>
+        <c:otherwise>
+            <%--<% str_query = query; %>--%>
+            <c:set var="str_query" scope="session" value="${query}"/>
+        </c:otherwise>
+    </c:choose>
+    <div>
+        There are<strong> ${totalHits} </strong>results with the query "<strong>${query}</strong>"
     </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#search').focus();
+    <div style="position: fixed; bottom: 12px; right: 15px;">
+        Page<strong> ${page} </strong>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#search').focus();
 
-            //If query does not return results
-            $('#myModal').modal('show');
-        });
-        $('#close-popup').click(function() {
-            $(':input','#search-form').val("");
-            $('#search').focus();
-        })
-    </script>
+        //If query does not return results
+        $('#myModal').modal('show');
+    });
+    $('#close-popup').click(function() {
+        $(':input','#search-form').val("");
+        $('#search').focus();
+    })
+</script>
 </body>
 </html>
